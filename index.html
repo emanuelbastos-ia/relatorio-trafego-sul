@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Relatório Tráfego Sul · Revisa Previ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2.1' fill='%230E4A3C'/%3E%3Cpath d='M6.20 5.62L6.32 5.51L6.54 5.36L6.72 5.26L6.86 5.20L7.12 5.11L7.32 5.07L7.52 5.06L21.10 5.05L21.22 5.07L21.46 5.14L22.26 5.40L22.72 5.58L23.18 5.79L23.62 6.05L24.00 6.32L24.34 6.60L24.72 6.97L25.06 7.36L25.38 7.80L25.60 8.16L25.84 8.64L26.01 9.04L26.19 9.60L26.28 10.02L26.37 10.56L26.41 11.04L26.40 11.56L26.37 12.04L26.29 12.56L26.19 12.98L26.07 13.38L25.85 13.94L25.67 14.30L25.43 14.70L25.15 15.10L24.91 15.40L24.56 15.77L24.18 16.10L23.84 16.37L23.34 16.68L23.00 16.86L22.70 17.01L22.24 17.21L21.82 17.37L21.42 17.49L21.20 17.51L18.94 17.51L18.88 17.53L18.79 17.60L18.75 17.66L18.75 17.76L18.75 17.82L18.88 18.08L19.17 18.62L19.47 19.06L19.83 19.50L20.28 19.95L20.56 20.19L21.02 20.53L21.44 20.79L21.90 21.03L22.30 21.21L22.76 21.38L23.28 21.55L23.68 21.65L24.04 21.72L24.54 21.81L25.28 21.89L25.94 21.91L26.08 21.96L26.18 22.02L26.27 22.10L26.33 22.18L26.36 22.26L26.39 22.32L26.40 22.46L26.40 25.90L26.39 26.06L26.33 26.26L26.22 26.46L26.07 26.64L25.88 26.78L25.70 26.87L25.54 26.91L25.42 26.92L25.28 26.92L24.38 26.84L23.52 26.72L22.88 26.60L22.20 26.45L21.76 26.33L21.12 26.12L20.38 25.85L19.96 25.67L19.46 25.43L19.00 25.18L18.56 24.93L18.12 24.64L17.76 24.39L17.34 24.06L16.88 23.67L16.56 23.36L16.15 22.94L15.86 22.60L15.61 22.30L15.27 21.84L14.99 21.42L14.80 21.10L14.61 20.78L14.42 20.40L14.02 19.50L13.75 18.82L13.52 18.14L13.25 17.24L13.18 16.90L13.12 16.56L13.09 16.30L13.09 14.56L13.13 14.22L13.23 13.90L13.35 13.64L13.46 13.48L13.59 13.30L13.82 13.08L14.00 12.94L14.16 12.84L14.28 12.77L14.54 12.67L14.88 12.59L15.16 12.57L20.32 12.57L20.38 12.56L20.52 12.51L20.92 12.29L21.02 12.21L21.10 12.12L21.20 11.96L21.27 11.82L21.30 11.70L21.34 11.50L21.36 11.28L21.35 11.04L21.33 10.92L21.26 10.72L21.16 10.54L21.10 10.47L20.92 10.34L20.56 10.11L10.84 10.11L10.78 10.11L10.72 10.15L10.65 10.22L10.63 10.26L10.62 10.34L10.62 20.16L10.62 20.30L10.61 20.34L10.57 20.40L10.50 20.47L10.42 20.51L10.32 20.52L5.86 20.52L5.76 20.50L5.64 20.42L5.58 20.32L5.57 20.24L5.57 7.00L5.59 6.78L5.64 6.56L5.76 6.24L5.85 6.06L5.97 5.88Z' fill='%23F7C95E'/%3E%3C/svg%3E">
+<style>
+  /* Layout: brand row, sticky period bar, then sections of cards on the paper background. */
+  @font-face { font-family: 'RP Instrument Sans'; src: url(fonts/instrument.woff2) format('woff2'); font-weight: 400 700; font-display: swap; }
+  @font-face { font-family: 'RP Atkinson'; src: url(fonts/atk-400.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+  @font-face { font-family: 'RP Atkinson'; src: url(fonts/atk-700.woff2) format('woff2'); font-weight: 700; font-display: swap; }
+  :root {
+    --bg: #FFFCF6; --panel: #FFFFFF; --ink: #16241F; --ink-2: #44544E; --muted: #6B7B74; --line: #E7DFCD; --track: #EFE9DC;
+    --green: #0D7A5C; --brand: #0E4A3C; --gold: #E0A12B; --previ: #0D7A5C; --soft: #E2F2EA; --chip: #F6F0E3;
+    --display: 'RP Instrument Sans', 'Segoe UI', system-ui, sans-serif; --body: 'RP Atkinson', 'Segoe UI', system-ui, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0E1613; --panel: #15201C; --ink: #E7EEEA; --ink-2: #B9C7C1; --muted: #8FA29A; --line: #26342F; --track: #22302B;
+      --green: #3BA383; --brand: #0E4A3C; --gold: #F2B53A; --previ: #F7C95E; --soft: #17302A; --chip: #1C2925; color-scheme: dark; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.45; -webkit-text-size-adjust: 100%; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .num, table, .tile .val, .hb, .funil, .chart text, .tip, .chip, .bar-period .resumo { font-family: var(--display); font-variant-numeric: tabular-nums; }
+  h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(1.45rem, 1.1rem + 1.2vw, 2rem); font-weight: 700; letter-spacing: -0.015em; }
+  h2 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; }
+  h3 { font-size: 1rem; font-weight: 600; }
+  p { margin: 0; }
+  .muted { color: var(--muted); font-size: 0.85rem; }
+  b { font-weight: 700; }
+
+  .brand { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-block: 20px 6px; }
+  .brand svg { flex: none; border-radius: 3px; }
+  .brand .word { font-family: var(--display); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.015em; line-height: 1; }
+  .brand .word span { color: var(--previ); }
+  .brand .kicker { font-size: 0.85rem; color: var(--muted); border-left: 1px solid var(--line); padding-left: 10px; }
+  .brand .upd { margin-left: auto; font-size: 0.8rem; color: var(--muted); }
+
+  .bar-period { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+  .bar-period .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding-block: 10px; }
+  .bar-period .lbl { font-family: var(--display); font-weight: 600; font-size: 0.9rem; }
+  .presets { display: flex; flex-wrap: wrap; gap: 6px; }
+  .presets button { font: 500 0.85rem var(--display); color: var(--ink-2); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+  .presets button[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: #FFFCF6; }
+  .dates { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--ink-2); }
+  .dates input { font: 0.85rem var(--display); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; }
+  .bar-period .resumo { font-size: 0.85rem; color: var(--muted); margin-left: auto; }
+  button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+  main { display: grid; gap: 34px; padding-block: 22px 40px; }
+  section { display: grid; gap: 14px; }
+  .head { display: grid; gap: 4px; }
+  .take { max-width: 72ch; font-size: 1.02rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 14px; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: 12px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .tile { padding: 14px 16px; gap: 2px; }
+  .tile .lbl { font-size: 0.8rem; color: var(--muted); }
+  .tile .val { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+  .tile .sub { font-size: 0.78rem; color: var(--muted); }
+  .tile.hero { background: var(--soft); border-color: color-mix(in srgb, var(--green) 35%, var(--line)); }
+
+  .chart { position: relative; min-height: 230px; }
+  .chart svg { display: block; width: 100%; height: auto; }
+  .tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 18px rgb(0 0 0 / .12); padding: 6px 10px; font-size: 0.8rem; white-space: nowrap; z-index: 3; }
+  .tip .k { color: var(--muted); }
+
+  .hb { display: grid; gap: 7px; }
+  .hb .row { display: grid; grid-template-columns: minmax(7rem, 12rem) 1fr auto; gap: 10px; align-items: center; font-size: 0.85rem; }
+  .hb .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hb .tr { height: 14px; background: var(--track); border-radius: 4px; overflow: hidden; }
+  .hb .br { height: 100%; border-radius: 4px; }
+  .hb .vl { text-align: right; white-space: nowrap; }
+  .hb .vl small { color: var(--muted); margin-left: 4px; }
+
+  .funil { display: grid; gap: 8px; }
+  .funil .step { display: grid; grid-template-columns: minmax(9rem, 14rem) 1fr; gap: 10px; align-items: center; font-size: 0.9rem; }
+  .funil .bar { height: 28px; border-radius: 6px; background: var(--green); color: #FFFCF6; display: flex; align-items: center; gap: 6px; padding-inline: 8px; font-size: 0.85rem; min-width: 3.2rem; }
+  .funil .bar small { opacity: .85; }
+
+  .tbl { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.85rem; }
+  th, td { padding: 7px 8px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th { color: var(--muted); font-weight: 600; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-bottom: 0; }
+  .empty { color: var(--muted); font-size: 0.9rem; padding: 18px 0; }
+
+  details { border-top: 1px solid var(--line); padding-top: 14px; }
+  summary { cursor: pointer; font-family: var(--display); font-weight: 600; }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-size: 0.88rem; margin: 12px 0 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; max-width: 70ch; }
+  footer { border-top: 1px solid var(--line); padding-block: 18px 28px; font-size: 0.8rem; color: var(--muted); }
+  @media (max-width: 560px) {
+    .bar-period { position: static; }
+    .dl { grid-template-columns: 1fr; }
+    dl { grid-template-columns: 1fr; }
+    .bar-period .resumo { margin-left: 0; width: 100%; }
+    .brand .upd { margin-left: 0; width: 100%; }
+    .hb .row { grid-template-columns: minmax(5.5rem, 8rem) 1fr auto; }
+    .funil .step { grid-template-columns: 7.5rem 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="wrap brand">
+  <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="2.1" fill="#0E4A3C"/><path d="M6.20 5.62L6.32 5.51L6.54 5.36L6.72 5.26L6.86 5.20L7.12 5.11L7.32 5.07L7.52 5.06L21.10 5.05L21.22 5.07L21.46 5.14L22.26 5.40L22.72 5.58L23.18 5.79L23.62 6.05L24.00 6.32L24.34 6.60L24.72 6.97L25.06 7.36L25.38 7.80L25.60 8.16L25.84 8.64L26.01 9.04L26.19 9.60L26.28 10.02L26.37 10.56L26.41 11.04L26.40 11.56L26.37 12.04L26.29 12.56L26.19 12.98L26.07 13.38L25.85 13.94L25.67 14.30L25.43 14.70L25.15 15.10L24.91 15.40L24.56 15.77L24.18 16.10L23.84 16.37L23.34 16.68L23.00 16.86L22.70 17.01L22.24 17.21L21.82 17.37L21.42 17.49L21.20 17.51L18.94 17.51L18.88 17.53L18.79 17.60L18.75 17.66L18.75 17.76L18.75 17.82L18.88 18.08L19.17 18.62L19.47 19.06L19.83 19.50L20.28 19.95L20.56 20.19L21.02 20.53L21.44 20.79L21.90 21.03L22.30 21.21L22.76 21.38L23.28 21.55L23.68 21.65L24.04 21.72L24.54 21.81L25.28 21.89L25.94 21.91L26.08 21.96L26.18 22.02L26.27 22.10L26.33 22.18L26.36 22.26L26.39 22.32L26.40 22.46L26.40 25.90L26.39 26.06L26.33 26.26L26.22 26.46L26.07 26.64L25.88 26.78L25.70 26.87L25.54 26.91L25.42 26.92L25.28 26.92L24.38 26.84L23.52 26.72L22.88 26.60L22.20 26.45L21.76 26.33L21.12 26.12L20.38 25.85L19.96 25.67L19.46 25.43L19.00 25.18L18.56 24.93L18.12 24.64L17.76 24.39L17.34 24.06L16.88 23.67L16.56 23.36L16.15 22.94L15.86 22.60L15.61 22.30L15.27 21.84L14.99 21.42L14.80 21.10L14.61 20.78L14.42 20.40L14.02 19.50L13.75 18.82L13.52 18.14L13.25 17.24L13.18 16.90L13.12 16.56L13.09 16.30L13.09 14.56L13.13 14.22L13.23 13.90L13.35 13.64L13.46 13.48L13.59 13.30L13.82 13.08L14.00 12.94L14.16 12.84L14.28 12.77L14.54 12.67L14.88 12.59L15.16 12.57L20.32 12.57L20.38 12.56L20.52 12.51L20.92 12.29L21.02 12.21L21.10 12.12L21.20 11.96L21.27 11.82L21.30 11.70L21.34 11.50L21.36 11.28L21.35 11.04L21.33 10.92L21.26 10.72L21.16 10.54L21.10 10.47L20.92 10.34L20.56 10.11L10.84 10.11L10.78 10.11L10.72 10.15L10.65 10.22L10.63 10.26L10.62 10.34L10.62 20.16L10.62 20.30L10.61 20.34L10.57 20.40L10.50 20.47L10.42 20.51L10.32 20.52L5.86 20.52L5.76 20.50L5.64 20.42L5.58 20.32L5.57 20.24L5.57 7.00L5.59 6.78L5.64 6.56L5.76 6.24L5.85 6.06L5.97 5.88Z" fill="#F7C95E"/></svg>
+  <span class="word">Revisa<span>Previ</span></span>
+  <span class="kicker">Relatório de campanha · Tráfego Sul</span>
+  <span class="upd" id="upd"></span>
+</header>
+
+<div class="bar-period">
+  <div class="wrap">
+    <span class="lbl">Período</span>
+    <div class="presets" role="group" aria-label="Atalhos de período">
+      <button type="button" data-p="tudo">Tudo</button>
+      <button type="button" data-p="7d">Últimos 7 dias</button>
+      <button type="button" data-p="ontem">Ontem</button>
+      <button type="button" data-p="hoje">Hoje</button>
+    </div>
+    <label class="dates">De <input type="date" id="de"></label>
+    <label class="dates">até <input type="date" id="ate"></label>
+    <span class="resumo" id="resumo"></span>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="resumo-sec">
+    <div class="head">
+      <h1>Conversas no WhatsApp pelo anúncio</h1>
+      <p class="take" id="take"></p>
+      <p class="muted">Campanha 01 - Previ Tráfego Sul [Conversas] CBO 80. Homens de 18 a 65+ no Paraná, Santa Catarina e Rio Grande do Sul, com orçamento de R$ 80 por dia e destino WhatsApp. Todo valor em reais já inclui o imposto da Meta.</p>
+    </div>
+    <div class="tiles">
+      <div class="card tile hero"><span class="lbl">Conversas iniciadas</span><span class="val" id="t-conv">—</span><span class="sub">mensagens no WhatsApp vindas do anúncio</span></div>
+      <div class="card tile hero"><span class="lbl">Custo por conversa</span><span class="val" id="t-cpc-conv">—</span><span class="sub">investimento com imposto ÷ conversas</span></div>
+      <div class="card tile"><span class="lbl">Investimento real</span><span class="val" id="t-spend">—</span><span class="sub" id="t-spend-sub">com imposto</span></div>
+      <div class="card tile"><span class="lbl">Alcance</span><span class="val" id="t-reach">—</span><span class="sub">pessoas diferentes que viram o anúncio</span></div>
+      <div class="card tile"><span class="lbl">Cliques no link</span><span class="val" id="t-lc">—</span><span class="sub">toques no botão de WhatsApp</span></div>
+      <div class="card tile"><span class="lbl">CTR no link</span><span class="val" id="t-ctr">—</span><span class="sub">cliques no link ÷ impressões</span></div>
+      <div class="card tile"><span class="lbl">Impressões</span><span class="val" id="t-imp">—</span><span class="sub">vezes que o anúncio apareceu</span></div>
+      <div class="card tile"><span class="lbl">Frequência</span><span class="val" id="t-freq">—</span><span class="sub">vezes por pessoa</span></div>
+      <div class="card tile"><span class="lbl">CPM</span><span class="val" id="t-cpm">—</span><span class="sub">custo por mil impressões</span></div>
+      <div class="card tile"><span class="lbl">CPC no link</span><span class="val" id="t-cpc">—</span><span class="sub">custo por clique no link</span></div>
+      <div class="card tile"><span class="lbl">ThruPlays</span><span class="val" id="t-thru">—</span><span class="sub">vídeos vistos por 15 s ou até o fim</span></div>
+      <div class="card tile"><span class="lbl">Imposto da Meta</span><span class="val" id="t-tax">—</span><span class="sub">12,15% do valor pago</span></div>
+    </div>
+  </section>
+
+  <section id="dia">
+    <div class="head"><h2>Dia a dia</h2><p class="muted">No dia 5 a campanha não gastou nada; a conversa desse dia veio de um clique da véspera.</p></div>
+    <div class="grid">
+      <div class="card"><h3>Conversas iniciadas</h3><div class="chart" id="c-dia-conv"></div></div>
+      <div class="card"><h3>Investimento com imposto</h3><div class="chart" id="c-dia-spend"></div></div>
+    </div>
+    <div class="card"><h3>Tabela diária</h3><div class="tbl" id="tb-dia"></div></div>
+  </section>
+
+  <section id="publico">
+    <div class="head"><h2>Quem respondeu</h2><p class="muted">O anúncio foi configurado só para homens. Verde mostra resultado, amarelo mostra dinheiro.</p></div>
+    <div class="grid">
+      <div class="card"><h3>Conversas por idade</h3><p class="muted">Ao lado, custo por conversa.</p><div class="hb" id="hb-idade-conv"></div></div>
+      <div class="card"><h3>Investimento por idade</h3><p class="muted">Ao lado, a parte do total.</p><div class="hb" id="hb-idade-spend"></div></div>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Investimento por estado</h3><p class="muted">Ao lado, cliques no link.</p><div class="hb" id="hb-estado"></div></div>
+      <div class="card"><h3>Estados em detalhe</h3><p class="muted">A Meta não informa conversas por estado. "2ª mensagem" conta quem mandou mais de uma mensagem.</p><div class="tbl" id="tb-estado"></div></div>
+    </div>
+  </section>
+
+  <section id="posicionamento">
+    <div class="head"><h2>Onde o anúncio apareceu</h2><p class="muted">A Meta escolhe os posicionamentos sozinha (Advantage+).</p></div>
+    <div class="grid">
+      <div class="card"><h3>Conversas por posicionamento</h3><p class="muted">Ao lado, custo por conversa.</p><div class="hb" id="hb-pos"></div></div>
+      <div class="card"><h3>Posicionamentos em detalhe</h3><div class="tbl" id="tb-pos"></div></div>
+    </div>
+  </section>
+
+  <section id="anuncios">
+    <div class="head"><h2>Anúncios</h2><p class="muted">14 vídeos: 7 profissões, cada uma com um gancho de identificação e um de dinheiro.</p></div>
+    <div class="card"><h3>Investimento por anúncio</h3><p class="muted">Ao lado, conversas e custo por conversa.</p><div class="hb" id="hb-ads"></div></div>
+    <div class="grid">
+      <div class="card"><h3>Por gancho</h3><div class="tbl" id="tb-gancho"></div></div>
+      <div class="card"><h3>Por profissão</h3><div class="tbl" id="tb-prof"></div></div>
+    </div>
+  </section>
+
+  <section id="horario">
+    <div class="head"><h2>Horário do dia</h2><p class="muted">Soma dos dias escolhidos, no horário de Brasília.</p></div>
+    <div class="grid">
+      <div class="card"><h3>Conversas por hora</h3><div class="chart" id="c-hora-conv"></div></div>
+      <div class="card"><h3>Investimento por hora</h3><div class="chart" id="c-hora-spend"></div></div>
+    </div>
+  </section>
+
+  <section id="conversas">
+    <div class="head">
+      <h2>Depois que a pessoa chama no WhatsApp</h2>
+      <p class="take" id="take-conv"></p>
+      <p class="muted" id="conv-nota"></p>
+    </div>
+    <div class="tiles">
+      <div class="card tile hero"><span class="lbl">Leads do anúncio</span><span class="val" id="k-leads">—</span><span class="sub">conversas abertas pelo botão</span></div>
+      <div class="card tile"><span class="lbl">Responderam</span><span class="val" id="k-resp">—</span><span class="sub">escreveram ou mandaram áudio depois da saudação</span></div>
+      <div class="card tile"><span class="lbl">Contaram o caso</span><span class="val" id="k-det">—</span><span class="sub">deram detalhes do acidente</span></div>
+      <div class="card tile"><span class="lbl">Em andamento</span><span class="val" id="k-and">—</span><span class="sub">ainda podem virar cliente</span></div>
+      <div class="card tile"><span class="lbl">Reuniões marcadas</span><span class="val" id="k-reu">—</span><span class="sub">vídeo com o advogado</span></div>
+      <div class="card tile"><span class="lbl">Custo por lead em andamento</span><span class="val" id="k-cand">—</span><span class="sub">investimento com imposto ÷ em andamento</span></div>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Funil das conversas</h3><div class="funil" id="funil"></div></div>
+      <div class="card"><h3>Onde cada lead parou</h3><p class="muted">Ao lado, a parte do total.</p><div class="hb" id="hb-grupos"></div></div>
+    </div>
+    <div class="card"><h3>Mensagem do botão e taxa de resposta</h3><p class="muted">O texto que o lead envia ao clicar no anúncio muda o quanto ele continua a conversa.</p><div class="tbl" id="tb-botao"></div></div>
+  </section>
+
+  <details>
+    <summary>Como ler este relatório</summary>
+    <dl>
+      <dt>Conversa iniciada</dt><dd>Pessoa que tocou no anúncio e mandou a primeira mensagem no WhatsApp. É o resultado da campanha no Gerenciador da Meta.</dd>
+      <dt>Imposto</dt><dd>A Meta cobra 12,15% de ISS, PIS e Cofins sobre o que sai do saldo. De cada R$ 100 pagos, R$ 87,85 viram anúncio. Todos os valores em reais já incluem esse imposto.</dd>
+      <dt>Alcance e frequência</dt><dd>Alcance é quantas pessoas diferentes viram o anúncio no período. Frequência é quantas vezes, em média, cada uma viu.</dd>
+      <dt>CTR, CPC e CPM</dt><dd>CTR é a parte das impressões que virou clique no botão de WhatsApp. CPC é o custo de cada clique. CPM é o custo de mil impressões.</dd>
+      <dt>Conversas no WhatsApp</dt><dd>Cada lead conta no dia em que entrou. A situação de cada um é a da última leitura das conversas. Aqui só aparecem contagens, sem nenhum dado pessoal.</dd>
+      <dt>Dia corrente</dt><dd>O último dia ainda está em andamento e a Meta pode revisar os números por até 72 horas.</dd>
+    </dl>
+  </details>
+</main>
+
+<footer class="wrap">Revisa Previ · Grupo Revisa. Relatório de desempenho com números agregados, sem dados pessoais. A Revisa Previ não tem vínculo com o INSS ou com o governo.</footer>
+
+<script src="dados.js"></script>
+<script>
+(function () {
+  const D = window.DADOS;
+  const TAX = 1 / (1 - D.aliquota_imposto);
+  const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+  const brl0 = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  const int = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
+  const dec2 = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const money = (v) => (v == null || !isFinite(v) ? '—' : brl.format(v));
+  const n0 = (v) => (v == null || !isFinite(v) ? '—' : int.format(v));
+  const d2 = (v) => (v == null || !isFinite(v) ? '—' : dec2.format(v));
+  const pct = (v) => (v == null || !isFinite(v) ? '—' : dec2.format(v) + '%');
+  const pct0 = (v) => (v == null || !isFinite(v) ? '' : int.format(v * 100) + '%');
+  const MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+  const DIAS = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
+  const dt = (s) => new Date(s + 'T12:00:00Z');
+  const ddmm = (s) => s.slice(8, 10) + '/' + s.slice(5, 7);
+  const longa = (s) => { const d = dt(s); return d.getUTCDate() + ' de ' + MESES[d.getUTCMonth()]; };
+  const addDays = (s, n) => { const d = dt(s); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+  const clamp = (s) => (s < D.inicio ? D.inicio : s > D.hoje ? D.hoje : s);
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+
+  // Normalize rows: [date, spend, imp, lc, conv, msg2, thru, clicks, reach]
+  const asObj = (a, o) => ({ d: a[o], spend: a[o + 1] * TAX, imp: a[o + 2], lc: a[o + 3], conv: a[o + 4], m2: a[o + 5], thru: a[o + 6], clk: a[o + 7], reach: a[o + 8] });
+  const daily = D.diario.map((r) => asObj(r, 0));
+  const withKey = (rows) => rows.map((r) => Object.assign({ k: r[0] }, asObj(r, 1)));
+  const idade = withKey(D.idade), estado = withKey(D.estado), pos = withKey(D.posicionamento), ads = withKey(D.anuncios);
+  const hora = D.hora.map((r) => ({ h: r[0], d: r[1], spend: r[2] * TAX, imp: r[3], lc: r[4], conv: r[5] }));
+  const BOTAO = { Requisitos: 'Quais são os requisitos para solicitar o benefício?', Sequelas: 'Sofri um acidente e fiquei com sequelas', 'Tenho direito': 'Quero saber se tenho direito ao auxílio-acidente' };
+
+  const sum = (rows, k) => rows.reduce((a, r) => a + (+r[k] || 0), 0);
+  const groupBy = (rows, keyFn) => { const m = new Map(); rows.forEach((r) => { const k = keyFn(r); const g = m.get(k) || { k, spend: 0, imp: 0, lc: 0, conv: 0, m2: 0, thru: 0, clk: 0 }; ['spend', 'imp', 'lc', 'conv', 'm2', 'thru', 'clk'].forEach((f) => { g[f] += +r[f] || 0; }); m.set(k, g); }); return [...m.values()]; };
+
+  let state = { de: D.inicio, ate: D.hoje, preset: 'tudo' };
+
+  // ---------- drawing helpers ----------
+  function hbars(box, items, color) {
+    box.replaceChildren();
+    if (!items.length) { box.append(el('p', 'empty', 'Sem dados no período.')); return; }
+    const max = Math.max(...items.map((i) => i.v), 1e-9);
+    items.forEach((i) => {
+      const row = el('div', 'row');
+      const nm = el('span', 'nm', i.label); nm.title = i.label;
+      const tr = el('div', 'tr'); const br = el('div', 'br'); br.style.width = (i.v / max * 100) + '%'; br.style.background = color; tr.append(br);
+      const vl = el('span', 'vl', i.text); if (i.sub) vl.append(el('small', null, i.sub));
+      row.append(nm, tr, vl); box.append(row);
+    });
+  }
+
+  function table(box, head, rows, total) {
+    box.replaceChildren();
+    if (!rows.length) { box.append(el('p', 'empty', 'Sem dados no período.')); return; }
+    const t = el('table'); const th = el('thead'); const tr = el('tr'); head.forEach((h) => tr.append(el('th', null, h))); th.append(tr); t.append(th);
+    const tb = el('tbody'); rows.forEach((r) => { const x = el('tr'); r.forEach((c) => x.append(el('td', null, c))); tb.append(x); });
+    if (total) { const x = el('tr', 'total'); total.forEach((c) => x.append(el('td', null, c))); tb.append(x); }
+    t.append(tb); box.append(t);
+  }
+
+  function vbars(box, items, color, yFmt, everyLabel) {
+    box.replaceChildren();
+    if (!items.length) { box.append(el('p', 'empty', 'Sem dados no período.')); return; }
+    const W = Math.max(box.clientWidth || 320, 260), H = 220, top = 12, bottom = 28;
+    const max = Math.max(...items.map((i) => i.v), 0);
+    const step = niceStep(max || 1);
+    const yMax = Math.max(step * Math.ceil((max || 1) / step), step);
+    const ticks = []; for (let v = 0; v <= yMax + 1e-9; v += step) ticks.push(v);
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('role', 'img');
+    const mk = (tag, attrs) => { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); svg.append(e); return e; };
+    box.append(svg);
+    // measure the widest tick label for the left margin
+    let left = 0; ticks.forEach((t) => { const tx = mk('text', { x: 0, y: 0, 'font-size': 11 }); tx.textContent = yFmt(t); left = Math.max(left, tx.getComputedTextLength()); tx.remove(); });
+    left = Math.ceil(left) + 10;
+    const y = (v) => top + (H - top - bottom) * (1 - v / yMax);
+    ticks.forEach((t) => {
+      mk('line', { x1: left, x2: W - 4, y1: y(t), y2: y(t), stroke: 'var(--line)', 'stroke-width': 1 });
+      const tx = mk('text', { x: left - 6, y: y(t), dy: '0.32em', 'text-anchor': 'end', 'font-size': 11, fill: 'var(--muted)' }); tx.textContent = yFmt(t);
+    });
+    const band = (W - 4 - left) / items.length, bw = Math.min(band * 0.7, 34);
+    const tip = el('div', 'tip'); tip.style.display = 'none'; box.append(tip);
+    const bars = [];
+    items.forEach((it, i) => {
+      const x = left + band * i + (band - bw) / 2;
+      const b = mk('rect', { x, width: bw, y: y(it.v), height: Math.max(0, y(0) - y(it.v)), rx: 3 }); b.style.fill = color; bars.push(b);
+      if (i % (everyLabel || 1) === 0) { const tx = mk('text', { x: left + band * i + band / 2, y: H - 9, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--muted)' }); tx.textContent = it.label; }
+      const hit = mk('rect', { x: left + band * i, width: band, y: top, height: H - top - bottom, fill: 'transparent' });
+      const show = (ev) => {
+        bars.forEach((o) => { o.style.opacity = o === b ? '1' : '.5'; });
+        tip.replaceChildren(el('div', 'k', it.tipTitle || it.label)); it.tip.forEach((line) => tip.append(el('div', null, line)));
+        tip.style.display = 'block';
+        const r = box.getBoundingClientRect(); const px = (ev.clientX || r.left + x) - r.left;
+        tip.style.left = Math.max(0, Math.min(px + 12, r.width - tip.offsetWidth)) + 'px'; tip.style.top = '4px';
+      };
+      hit.addEventListener('pointerenter', show); hit.addEventListener('pointermove', show);
+      hit.addEventListener('pointerleave', () => { bars.forEach((o) => { o.style.opacity = '1'; }); tip.style.display = 'none'; });
+    });
+  }
+  function niceStep(max) { const raw = max / 4; const p = Math.pow(10, Math.floor(Math.log10(raw))); const f = raw / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * p; }
+
+  // ---------- render ----------
+  function render() {
+    const { de, ate } = state;
+    const inR = (r) => r.d >= de && r.d <= ate;
+    const dd = daily.filter(inR);
+    const spend = sum(dd, 'spend'), imp = sum(dd, 'imp'), lc = sum(dd, 'lc'), conv = sum(dd, 'conv'), thru = sum(dd, 'thru');
+    const reach = D.alcance[de + '|' + ate];
+    const nd = Math.round((dt(ate) - dt(de)) / 864e5) + 1;
+    $('resumo').textContent = (de === ate ? longa(de) : longa(de) + ' a ' + longa(ate)) + ' · ' + nd + (nd === 1 ? ' dia' : ' dias');
+    $('take').replaceChildren(
+      document.createTextNode((de === ate ? 'Em ' + longa(de) : 'De ' + longa(de) + ' a ' + longa(ate)) + ', '), el('b', null, money(spend)),
+      document.createTextNode(' investidos geraram '), el('b', null, n0(conv)), document.createTextNode(' conversas iniciadas no WhatsApp, a '),
+      el('b', null, conv ? money(spend / conv) : '—'), document.createTextNode(' por conversa. O anúncio alcançou '), el('b', null, n0(reach)),
+      document.createTextNode(' homens no Sul.'));
+    $('t-conv').textContent = n0(conv);
+    $('t-cpc-conv').textContent = conv ? money(spend / conv) : '—';
+    $('t-spend').textContent = money(spend);
+    $('t-spend-sub').textContent = 'com imposto; ' + money(spend / TAX) + ' no Gerenciador';
+    $('t-reach').textContent = n0(reach);
+    $('t-lc').textContent = n0(lc);
+    $('t-ctr').textContent = imp ? pct(lc / imp * 100) : '—';
+    $('t-imp').textContent = n0(imp);
+    $('t-freq').textContent = reach ? d2(imp / reach) : '—';
+    $('t-cpm').textContent = imp ? money(spend / imp * 1000) : '—';
+    $('t-cpc').textContent = lc ? money(spend / lc) : '—';
+    $('t-thru').textContent = n0(thru);
+    $('t-tax').textContent = money(spend - spend / TAX);
+
+    // daily
+    vbars($('c-dia-conv'), dd.map((r) => ({ label: ddmm(r.d), tipTitle: DIAS[dt(r.d).getUTCDay()] + ' ' + ddmm(r.d), v: r.conv, tip: ['Conversas: ' + n0(r.conv), 'Custo por conversa: ' + (r.conv && r.spend ? money(r.spend / r.conv) : '—')] })), 'var(--green)', (v) => n0(v));
+    vbars($('c-dia-spend'), dd.map((r) => ({ label: ddmm(r.d), tipTitle: DIAS[dt(r.d).getUTCDay()] + ' ' + ddmm(r.d), v: r.spend, tip: ['Investimento: ' + money(r.spend), 'Impressões: ' + n0(r.imp), 'Cliques no link: ' + n0(r.lc)] })), 'var(--gold)', (v) => brl0.format(v));
+    table($('tb-dia'), ['Dia', 'Investimento', 'Conversas', 'Custo/conversa', 'Impressões', 'Alcance', 'Cliques no link', 'CTR', 'CPC', 'CPM', '2ª mensagem'],
+      dd.map((r) => [DIAS[dt(r.d).getUTCDay()] + ' ' + ddmm(r.d), money(r.spend), n0(r.conv), r.conv && r.spend ? money(r.spend / r.conv) : '—', n0(r.imp), n0(r.reach), n0(r.lc), r.imp ? pct(r.lc / r.imp * 100) : '—', r.lc ? money(r.spend / r.lc) : '—', r.imp ? money(r.spend / r.imp * 1000) : '—', n0(r.m2)]),
+      ['Período', money(spend), n0(conv), conv ? money(spend / conv) : '—', n0(imp), n0(reach), n0(lc), imp ? pct(lc / imp * 100) : '—', lc ? money(spend / lc) : '—', imp ? money(spend / imp * 1000) : '—', n0(sum(dd, 'm2'))]);
+
+    // age
+    const ag = groupBy(idade.filter(inR), (r) => r.k).sort((a, b) => a.k.localeCompare(b.k));
+    const agSpend = sum(ag, 'spend');
+    hbars($('hb-idade-conv'), ag.map((g) => ({ label: g.k + ' anos', v: g.conv, text: n0(g.conv), sub: g.conv ? money(g.spend / g.conv) + ' cada' : 'sem conversa' })), 'var(--green)');
+    hbars($('hb-idade-spend'), ag.map((g) => ({ label: g.k + ' anos', v: g.spend, text: money(g.spend), sub: agSpend ? pct0(g.spend / agSpend) : '' })), 'var(--gold)');
+
+    // state
+    const st = groupBy(estado.filter(inR), (r) => r.k).sort((a, b) => b.spend - a.spend);
+    hbars($('hb-estado'), st.map((g) => ({ label: g.k, v: g.spend, text: money(g.spend), sub: n0(g.lc) + ' cliques' })), 'var(--gold)');
+    table($('tb-estado'), ['Estado', 'Investimento', 'Impressões', 'Cliques no link', 'CTR', 'CPC', '2ª mensagem'],
+      st.map((g) => [g.k, money(g.spend), n0(g.imp), n0(g.lc), g.imp ? pct(g.lc / g.imp * 100) : '—', g.lc ? money(g.spend / g.lc) : '—', n0(g.m2)]));
+
+    // placement
+    const pl = groupBy(pos.filter(inR), (r) => r.k).filter((g) => g.spend > 0 || g.conv > 0).sort((a, b) => b.spend - a.spend);
+    hbars($('hb-pos'), pl.filter((g) => g.spend >= 1).sort((a, b) => b.conv - a.conv).map((g) => ({ label: g.k, v: g.conv, text: n0(g.conv), sub: g.conv ? money(g.spend / g.conv) + ' cada' : 'sem conversa' })), 'var(--green)');
+    table($('tb-pos'), ['Posicionamento', 'Investimento', 'Conversas', 'Custo/conversa', 'Impressões', 'CTR', 'CPM'],
+      pl.map((g) => [g.k, money(g.spend), n0(g.conv), g.conv ? money(g.spend / g.conv) : '—', n0(g.imp), g.imp ? pct(g.lc / g.imp * 100) : '—', g.imp ? money(g.spend / g.imp * 1000) : '—']));
+
+    // ads
+    const ad = groupBy(ads.filter(inR), (r) => r.k).filter((g) => g.spend > 0 || g.imp > 0).sort((a, b) => b.spend - a.spend);
+    hbars($('hb-ads'), ad.map((g) => ({ label: g.k.replace(/^\d+ - /, '').replace(/ - v\d+$/, ''), v: g.spend, text: money(g.spend), sub: n0(g.conv) + (g.conv === 1 ? ' conversa' : ' conversas') + (g.conv ? ' · ' + money(g.spend / g.conv) : '') })), 'var(--gold)');
+    const part = (g, i) => (g.k.split(' - ')[i] || '').trim();
+    const agg = (fn) => { const m = new Map(); ad.forEach((g) => { const k = fn(g); const x = m.get(k) || { k, spend: 0, conv: 0, lc: 0, imp: 0 }; x.spend += g.spend; x.conv += g.conv; x.lc += g.lc; x.imp += g.imp; m.set(k, x); }); return [...m.values()].sort((a, b) => b.spend - a.spend); };
+    const rowsAgg = (list) => list.map((g) => [g.k, money(g.spend), n0(g.conv), g.conv ? money(g.spend / g.conv) : '—', n0(g.lc), g.imp ? pct(g.lc / g.imp * 100) : '—']);
+    table($('tb-gancho'), ['Gancho', 'Investimento', 'Conversas', 'Custo/conversa', 'Cliques no link', 'CTR'], rowsAgg(agg((g) => part(g, 2))));
+    table($('tb-prof'), ['Profissão', 'Investimento', 'Conversas', 'Custo/conversa', 'Cliques no link', 'CTR'], rowsAgg(agg((g) => part(g, 1))));
+
+    // hour
+    const hh = []; for (let h = 0; h < 24; h++) hh.push({ h, spend: 0, conv: 0, lc: 0 });
+    hora.filter(inR).forEach((r) => { hh[r.h].spend += r.spend; hh[r.h].conv += r.conv; hh[r.h].lc += r.lc; });
+    const every = ($('c-hora-conv').clientWidth || 600) < 460 ? 4 : 2;
+    const hl = (h) => String(h).padStart(2, '0') + 'h';
+    vbars($('c-hora-conv'), hh.map((x) => ({ label: hl(x.h), v: x.conv, tip: ['Conversas: ' + n0(x.conv), 'Investimento: ' + money(x.spend)] })), 'var(--green)', (v) => n0(v), every);
+    vbars($('c-hora-spend'), hh.map((x) => ({ label: hl(x.h), v: x.spend, tip: ['Investimento: ' + money(x.spend), 'Cliques no link: ' + n0(x.lc)] })), 'var(--gold)', (v) => brl0.format(v), every);
+
+    // conversations (counts only)
+    const cd = D.conversas_dia.filter((r) => r.dia >= de && r.dia <= ate);
+    const L = sum(cd, 'leads'), R = sum(cd, 'responderam'), DET = sum(cd, 'detalhes'), AND = sum(cd, 'Em andamento'), REU = sum(cd, 'reunioes');
+    $('k-leads').textContent = n0(L); $('k-resp').textContent = n0(R); $('k-det').textContent = n0(DET); $('k-and').textContent = n0(AND); $('k-reu').textContent = n0(REU);
+    $('k-cand').textContent = AND ? money(spend / AND) : '—';
+    $('take-conv').replaceChildren(document.createTextNode('Dos '), el('b', null, n0(L)), document.createTextNode(' leads que entraram no período, '), el('b', null, n0(R)),
+      document.createTextNode(' responderam além da mensagem automática, '), el('b', null, n0(DET)), document.createTextNode(' contaram o caso e '), el('b', null, n0(AND)),
+      document.createTextNode(' seguem em andamento. ' + (REU ? REU + (REU === 1 ? ' reunião foi marcada.' : ' reuniões foram marcadas.') : 'Nenhuma reunião marcada.')));
+    const fun = [['Chamaram no WhatsApp', L], ['Responderam', R], ['Contaram o caso', DET], ['Em andamento', AND], ['Reunião marcada', REU]];
+    const fb = $('funil'); fb.replaceChildren();
+    if (!L) fb.append(el('p', 'empty', 'Nenhum lead entrou no período.'));
+    else fun.forEach(([n, v], i) => { const s = el('div', 'step'); const b = el('div', 'bar'); b.style.width = Math.max(10, v / L * 100) + '%'; b.style.opacity = String(Math.max(0.55, 1 - i * 0.11)); b.append(el('b', null, n0(v)), el('small', null, pct0(v / L))); s.append(el('span', null, n), b); fb.append(s); });
+    const G = ['Sem resposta', 'Áudio sem avanço', 'Não se encaixa', 'Em andamento'];
+    hbars($('hb-grupos'), L ? G.map((g) => { const v = sum(cd, g); return { label: g, v, text: n0(v), sub: pct0(v / L) }; }) : [], 'var(--green)');
+    const bm = new Map(); D.conversas_botao.filter((r) => r.dia >= de && r.dia <= ate).forEach((r) => { const x = bm.get(r.botao) || { leads: 0, responderam: 0, detalhes: 0 }; x.leads += r.leads; x.responderam += r.responderam; x.detalhes += r.detalhes; bm.set(r.botao, x); });
+    table($('tb-botao'), ['Mensagem do botão', 'Leads', 'Responderam', 'Taxa de resposta', 'Contaram o caso'],
+      [...bm.entries()].sort((a, b) => b[1].leads - a[1].leads).map(([k, x]) => [BOTAO[k] || k, n0(x.leads), n0(x.responderam), x.leads ? pct0(x.responderam / x.leads) : '—', n0(x.detalhes)]));
+  }
+
+  // ---------- period controls ----------
+  const deI = $('de'), ateI = $('ate');
+  [deI, ateI].forEach((i) => { i.min = D.inicio; i.max = D.hoje; });
+  function setRange(de, ate, preset) {
+    de = clamp(de); ate = clamp(ate); if (de > ate) [de, ate] = [ate, de];
+    state = { de, ate, preset: preset || '' };
+    deI.value = de; ateI.value = ate;
+    document.querySelectorAll('.presets button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.p === state.preset)));
+    try { history.replaceState(null, '', '#' + (preset && preset !== 'tudo' ? preset : de === D.inicio && ate === D.hoje ? '' : de + '_' + ate)); } catch (e) {}
+    render();
+  }
+  const PRE = { tudo: () => [D.inicio, D.hoje], '7d': () => [addDays(D.hoje, -6), D.hoje], ontem: () => [addDays(D.hoje, -1), addDays(D.hoje, -1)], hoje: () => [D.hoje, D.hoje] };
+  document.querySelectorAll('.presets button').forEach((b) => b.addEventListener('click', () => { const [a, z] = PRE[b.dataset.p](); setRange(a, z, b.dataset.p); }));
+  [deI, ateI].forEach((i) => i.addEventListener('change', () => { if (deI.value && ateI.value && deI.validity.valid && ateI.validity.valid) setRange(deI.value, ateI.value, ''); }));
+
+  const at = new Date(D.atualizado_em);
+  $('upd').textContent = 'Atualizado em ' + at.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit' }) + ' às ' + at.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit' }).replace(':', 'h');
+  $('conv-nota').textContent = 'Cada lead conta no dia em que entrou. A situação de cada um é a da leitura das conversas em ' + $('upd').textContent.replace('Atualizado em ', '') + '. Só contagens, sem dados pessoais.';
+
+  const h = (location.hash || '').slice(1);
+  if (PRE[h]) { const [a, z] = PRE[h](); setRange(a, z, h); }
+  else if (/^\d{4}-\d{2}-\d{2}_\d{4}-\d{2}-\d{2}$/.test(h)) { const [a, z] = h.split('_'); setRange(a, z, ''); }
+  else setRange(D.inicio, D.hoje, 'tudo');
+  let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(render, 150); });
+})();
+</script>
+</body>
+</html>
